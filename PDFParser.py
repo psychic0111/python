@@ -3,8 +3,6 @@
 
 import importlib
 import sys
-from io import StringIO
-import string
 import os
 from wand.image import Image
 
@@ -15,6 +13,7 @@ from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import *
 from pdfminer.pdfinterp import PDFTextExtractionNotAllowed
+
 
 '''
 解析PDF文件，获取各种内容

@@ -2,11 +2,19 @@
 from PIL import Image
 import pytesseract
 import cv2 as cv
+import os
 
-img_path = 'resources/1.jpg'
+def image2Text(img_folder):
+    list = os.listdir(img_folder)
 
-img = cv.imread(img_path)
+    for f in list:
+        img_path = os.path.join(img_folder, f)
+        img = cv.imread(img_path)
 
-text = pytesseract.image_to_string(Image.fromarray(img), lang='chi_sim')
+        text = pytesseract.image_to_string(Image.fromarray(img), lang='chi_sim')
 
-print(text)
+        print(text)
+
+if __name__ == '__main__':
+    pic_path = 'D:/testimage'
+    image2Text(pic_path)
