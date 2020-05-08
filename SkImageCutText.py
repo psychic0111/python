@@ -19,7 +19,7 @@ def image_show(image, nrows=1, ncols=1, cmap='gray'):
     return fig, ax
 
 
-text = io.imread('C:/Users/ZF95/Desktop/测试图片/text1.jpg', as_grey=True)
+text = io.imread('C:/Users/psychic/Desktop/zhizhao.png', as_grey=True)
 #text = data.text()
 # fig, ax = plt.subplots(1, 1)
 # ax.hist(text.ravel(), bins=32, range=[0, 256])

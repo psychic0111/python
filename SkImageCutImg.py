@@ -16,16 +16,16 @@ def image_show(image, nrows=1, ncols=1, cmap='gray'):
     fig, ax = plt.subplots(nrows=nrows, ncols=ncols, figsize=(14, 14))
     ax.imshow(image, cmap=cmap)
     ax.axis('off')
-    #plt.show()
+    plt.show()
     return fig, ax
 
 
-image = io.imread('C:/Users/ZF95/Desktop/测试图片/man.jpg')
-# plt.imshow(image)
-# plt.show()
+image = io.imread('e:/cf400dc4d7e128635f2e066f7497eb8b.jpg')
+plt.imshow(image)
+plt.show()
 #
 image_gray = color.rgb2gray(image)
-# image_show(image_gray)
+image_show(image_gray)
 
 def circle_points(resolution, center, radius):
     radians = np.linspace(0, 2*np.pi, resolution)
@@ -49,25 +49,25 @@ print(image[0][0])#图像的像素值
 points = circle_points(550, [180, 170], 100)[:-1]
 
 
-# snake = seg.active_contour(image, points)
-# snake = seg.active_contour(image_gray, points, alpha=0.06, beta=0.3)
-# fig, ax = image_show(image)
-# ax.plot(points[:, 0], points[:, 1], '--r', lw=3)
+snake = seg.active_contour(image, points)
+snake = seg.active_contour(image_gray, points, alpha=0.06, beta=0.3)
+fig, ax = image_show(image)
+ax.plot(points[:, 0], points[:, 1], '--r', lw=3)
 
-# ax.plot(snake[:, 0], snake[:, 1], '-b', lw=3)
-# plt.show()
+ax.plot(snake[:, 0], snake[:, 1], '-b', lw=3)
+plt.show()
 
 image_labels = np.zeros(image_gray.shape, dtype=np.uint8)
 
-indices = draw.circle_perimeter(180, 179, 20)
+indices = draw.circle_perimeter(100, 279, 20)
 image_labels[indices] = 1
 image_labels[points[:, 1].astype(np.int), points[:, 0].astype(np.int)] = 2
-# image_show(image_labels)
-# plt.show()
+image_show(image_labels)
+plt.show()
 
 image_segmented = seg.random_walker(image_gray, image_labels, beta=39000)
 fig, ax = image_show(image_gray)
-# plt.show()
+plt.show()
 
 ax.imshow(image_segmented == 1, alpha=0.3)
 plt.show()

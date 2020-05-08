@@ -15,6 +15,6 @@ image_color = data.astronaut()
 plt.imshow(image_color)
 pylab.show()
 
-image_local = io.imread('C:/Users/ZF95/Desktop/测试图片/1.jpg')
+image_local = io.imread('e:/cf400dc4d7e128635f2e066f7497eb8b.jpg')
 plt.imshow(image_local)
 pylab.show()
